@@ -40,6 +40,11 @@ const Header = () => {
                 Login
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/admin">
+                Admin Page
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>

@@ -48,7 +48,9 @@
       "brand": "Samsung",
       "category": "smartphones",
       "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
-      "images": ["https://cdn.dummyjson.com/product-images/3/1.jpg"]
+      "images": [
+        "https://cdn.dummyjson.com/product-images/3/1.jpg"
+      ]
     },
     {
       "id": 4,
@@ -549,6 +551,48 @@
         "https://cdn.dummyjson.com/product-images/30/3.jpg",
         "https://cdn.dummyjson.com/product-images/30/thumbnail.jpg"
       ]
+    },
+    {
+      "title": "san pham moi tutor web502",
+      "price": "200",
+      "description": "mo ta",
+      "id": 31
+    },
+    {
+      "title": "san pham moi tutor web502",
+      "price": "200",
+      "description": "mo ta",
+      "id": 32
+    },
+    {
+      "title": "san pham moi tutor web502",
+      "price": "200",
+      "description": "mo ta",
+      "id": 33
+    },
+    {
+      "title": "ten san pham",
+      "price": "200",
+      "description": "mo ta",
+      "id": 34
+    },
+    {
+      "title": "them san pham moi 21:19",
+      "price": "200",
+      "description": "mo ta",
+      "id": 35
+    },
+    {
+      "title": " test joi",
+      "price": 200,
+      "description": "mo ta",
+      "id": 36
+    },
+    {
+      "title": "ten san pham",
+      "price": 200,
+      "description": "",
+      "id": 37
     }
   ]
 }

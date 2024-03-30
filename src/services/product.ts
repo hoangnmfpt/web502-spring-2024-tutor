@@ -1,3 +1,4 @@
+import { TProduct } from "../interfaces/TProducts";
 import instance from "./api";
 
 export const getProducts = async () => {
@@ -12,6 +13,15 @@ export const getProducts = async () => {
 export const getProduct = async (id: number) => {
   try {
     const { data } = await instance.get(`/products/${id}`);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const createProduct = async (product: TProduct) => {
+  try {
+    const { data } = await instance.post(`/products`, product);
     return data;
   } catch (error) {
     console.log(error);

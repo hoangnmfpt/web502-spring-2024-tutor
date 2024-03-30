@@ -9,7 +9,6 @@ type Props = {
 const Shop: React.FC<Props> = ({ products }) => {
   return (
     <div className="container">
-      <h1>Shop</h1>
       <div className="row gx-5">
         {products.map((item) => (
           <div
