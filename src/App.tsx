@@ -8,9 +8,15 @@ import { useEffect, useState } from "react";
 import { TProduct } from "./interfaces/TProducts";
 import Footer from "./components/Footer/Footer";
 import ProductDetail from "./pages/ProductDetail";
-import { createProduct, getProducts } from "./services/product";
+import {
+  createProduct,
+  getProducts,
+  removeProduct,
+  updateProduct,
+} from "./services/product";
 import Dashboard from "./pages/admin/Dashboard";
 import ProductAdd from "./pages/admin/ProductAdd";
+import ProductEdit from "./pages/admin/ProductEdit";
 
 function App() {
   const navigate = useNavigate();
@@ -29,8 +35,24 @@ function App() {
       setProducts([...products, newProduct]);
       navigate("/admin");
     })();
+  };
 
-    // IIFE =  Immediately Invoked Function Expression
+  const handleEditProduct = (product: TProduct) => {
+    (async () => {
+      const p = await updateProduct(product);
+      setProducts(products.map((i) => (i.id === p.id ? p : i)));
+      navigate("/admin");
+    })();
+  };
+
+  const handleDeleteProduct = (id: number | undefined) => {
+    (async () => {
+      const isConfirm = window.confirm("Are you sure?");
+      if (isConfirm) {
+        await removeProduct(`${id}`);
+        setProducts(products.filter((i) => i.id !== id));
+      }
+    })();
   };
   return (
     <>
@@ -46,10 +68,19 @@ function App() {
 
         {/* admin */}
         <Route path="/admin">
-          <Route path="/admin" element={<Dashboard products={products} />} />
+          <Route
+            path="/admin"
+            element={
+              <Dashboard products={products} onDel={handleDeleteProduct} />
+            }
+          />
           <Route
             path="/admin/add"
             element={<ProductAdd onAdd={handleAddProduct} />}
+          />
+          <Route
+            path="/admin/edit/:id"
+            element={<ProductEdit onEdit={handleEditProduct} />}
           />
         </Route>
 

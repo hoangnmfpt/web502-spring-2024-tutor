@@ -3,9 +3,13 @@ import { TProduct } from "../../interfaces/TProducts";
 
 type Props = {
   products: TProduct[];
+  onDel: (id: number | undefined) => void;
 };
 
-const Dashboard = ({ products }: Props) => {
+const Dashboard = ({ products, onDel }: Props) => {
+  const handleDelete = (id: number | undefined) => {
+    onDel(id);
+  };
   return (
     <div>
       <h1>Hello, admin</h1>
@@ -30,7 +34,12 @@ const Dashboard = ({ products }: Props) => {
               <td>{i.price}</td>
               <td>{i.description}</td>
               <td>
-                <button className="btn btn-danger">Delete</button>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => handleDelete(Number(i.id))}
+                >
+                  Delete
+                </button>
                 <Link to={`/admin/edit/${i.id}`} className="btn btn-warning">
                   Update
                 </Link>
