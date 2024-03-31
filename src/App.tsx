@@ -22,7 +22,6 @@ function App() {
   const navigate = useNavigate();
   const [products, setProducts] = useState<TProduct[]>([]);
   useEffect(() => {
-    // Cach 2:
     (async () => {
       const data = await getProducts();
       setProducts(data);
