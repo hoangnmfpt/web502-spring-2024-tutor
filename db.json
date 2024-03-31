@@ -575,6 +575,16 @@
       "email": "denvau@gmail.com",
       "password": "$2a$10$vgeZDaW/SPo8JrFS57jTC.WrdGZ/Uxj0Dy0yyzKwhgNPRc3JTpXpC",
       "id": 1
+    },
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$HXGrUpfIbVwK/QYam6n/0e5X2NCntwP7NJPkyoSQvObS9kJ9UKTwC",
+      "id": 2
+    },
+    {
+      "email": "hoang@gmail.com",
+      "password": "$2a$10$xy4X.BKaziLWFURU1uJMKedvE8Pe2EzooSK.2ofogL/rA7maxwgaO",
+      "id": 3
     }
   ]
 }

@@ -3,13 +3,15 @@ import Joi from "joi";
 import { useForm } from "react-hook-form";
 import { TUser } from "../interfaces/TUser";
 import instance from "../services/api";
+import { useNavigate } from "react-router-dom";
 
 const userSchema = Joi.object({
-  email: Joi.string().email().required(),
+  email: Joi.string().email({ tlds: false }).required(),
   password: Joi.string().required().min(6).max(255),
 });
 
 const Register = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -20,7 +22,10 @@ const Register = () => {
   const onSubmit = (user: TUser) => {
     (async () => {
       const { data } = await instance.post("/register", user);
-      console.log(data);
+      if (data.user) {
+        window.confirm("Register success, switch login page?") &&
+          navigate("/login");
+      }
     })();
   };
   return (
