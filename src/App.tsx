@@ -2,8 +2,6 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import "./App.scss";
 import Header from "./components/Header/Header";
 import Shop from "./pages/Shop";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
 import { useEffect, useState } from "react";
 import { TProduct } from "./interfaces/TProducts";
 import Footer from "./components/Footer/Footer";
@@ -22,7 +20,6 @@ function App() {
   const navigate = useNavigate();
   const [products, setProducts] = useState<TProduct[]>([]);
   useEffect(() => {
-    // Cach 2:
     (async () => {
       const data = await getProducts();
       setProducts(data);
@@ -62,8 +59,6 @@ function App() {
         <Route path="/">
           <Route index element={<Shop products={products} />} />
           <Route path="/shop/:id" element={<ProductDetail />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
         </Route>
 
         {/* admin */}
